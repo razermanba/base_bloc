@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:fimber/fimber.dart';
 
 import '../../core/common/result.dart';
+import '../remote/dto/model_base_response.dart';
 
 typedef EntityToModelMapper<Entity, Data> = Data? Function(Entity? entity);
 typedef SaveResult<Data> = Future Function(Data? data);
@@ -26,7 +27,7 @@ abstract class BaseRepository {
   }
 
   Future<Result<Data>> safeApiCall<Data>(
-    Future<ModelBaseReponse<Data>> call, {
+    Future<ModelBaseResponse<Data>> call, {
     SaveResult<Data>? saveResult,
   }) async {
     Fimber.d("safeApiCall");

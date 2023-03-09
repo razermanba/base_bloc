@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
+import '../presentation/feature/login/remote/service/login_service.dart';
 import '../presentation/remote/dio_network.dart';
 import '../presentation/routers/router.dart';
 import 'locator.config.dart';
@@ -33,8 +34,8 @@ void _registerNetworkModules(GetIt locator) =>
     locator.registerSingleton<Dio>(DioNetwork().getDio());
 
 void _registerServices(GetIt locator) {
-  // locator
-  //     .registerLazySingleton<LoginService>(() => LoginService(locator<Dio>()));
+  locator
+      .registerLazySingleton<LoginService>(() => LoginService(locator<Dio>()));
   // locator.registerLazySingleton<HomeService>(() => HomeService(locator<Dio>()));
 }
 

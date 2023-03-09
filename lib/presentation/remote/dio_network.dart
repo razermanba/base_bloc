@@ -11,11 +11,11 @@ class DioNetwork {
     Dio dio = Dio();
     _mockResponseData(dio);
     dio.options = BaseOptions(
-        baseUrl: ServiceConstant.baseUrl,
+        baseUrl: ServiceConstants.baseUrl,
         contentType: NetworkRequestValues.contentType,
-        sendTimeout: ServiceConstant.timeOut,
-        connectTimeout: ServiceConstant.timeOut,
-        receiveTimeout: ServiceConstant.timeOut);
+        sendTimeout: ServiceConstants.timeOut,
+        connectTimeout: ServiceConstants.timeOut,
+        receiveTimeout: ServiceConstants.timeOut);
     dio.interceptors.add(_addInterceptor());
     return dio;
   }

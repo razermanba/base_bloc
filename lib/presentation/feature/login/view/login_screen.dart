@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/bloc/state.dart';
+import '../bloc/login_bloc.dart';
+import '../bloc/login_event.dart';
+import '../remote/repository/login_repository.dart';
 
 class LoginScreen extends BaseView<LoginBloc> {
   const LoginScreen({Key? key}) : super(key: key);
@@ -48,7 +51,7 @@ class LoginScreen extends BaseView<LoginBloc> {
                 final bloc = BlocProvider.of<LoginBloc>(context);
                 bloc.add(LoginSubmitted());
               },
-              child: const Text("Login");
+              child: const Text("Login")
           )
         ])
     );

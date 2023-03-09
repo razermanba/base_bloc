@@ -1,3 +1,15 @@
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+//
+// ignore_for_file: type=lint
+
 part of 'router.dart';
 
 class _$AppRouter extends RootStackRouter {
@@ -7,25 +19,39 @@ class _$AppRouter extends RootStackRouter {
   final Map<String, PageFactory> pagesMap = {
     LoginScreenRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const LoginScreen());
+        routeData: routeData,
+        child: const LoginScreen(),
+      );
     },
-    // HomeScreenRoute.name: (routeData) {
-    //   return MaterialPageX<dynamic>(
-    //       routeData: routeData, child: const HomeScreen());
-    // }
+    HomeScreenRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
-    RouteConfig(LoginScreenRoute.name, path: '/'),
-    RouteConfig(HomeScreenRoute.name, path: '/home-screen')
-  ];
+        RouteConfig(
+          LoginScreenRoute.name,
+          path: '/',
+        ),
+        RouteConfig(
+          HomeScreenRoute.name,
+          path: '/home-screen',
+        ),
+      ];
 }
 
 /// generated route for
 /// [LoginScreen]
 class LoginScreenRoute extends PageRouteInfo<void> {
-  const LoginScreenRoute() : super(LoginScreenRoute.name, path: '/');
+  const LoginScreenRoute()
+      : super(
+          LoginScreenRoute.name,
+          path: '/',
+        );
 
   static const String name = 'LoginScreenRoute';
 }
@@ -33,7 +59,11 @@ class LoginScreenRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [HomeScreen]
 class HomeScreenRoute extends PageRouteInfo<void> {
-  const HomeScreenRoute() : super(HomeScreenRoute.name, path: '/home-screen');
+  const HomeScreenRoute()
+      : super(
+          HomeScreenRoute.name,
+          path: '/home-screen',
+        );
 
   static const String name = 'HomeScreenRoute';
 }
