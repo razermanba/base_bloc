@@ -3,6 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
+import '../data/local/dao/home_dao.dart';
+import '../data/local/db/app_database.dart';
+import '../presentation/feature/home/remote/service/home_service.dart';
 import '../presentation/feature/login/remote/service/login_service.dart';
 import '../presentation/remote/dio_network.dart';
 import '../presentation/routers/router.dart';
@@ -36,13 +39,13 @@ void _registerNetworkModules(GetIt locator) =>
 void _registerServices(GetIt locator) {
   locator
       .registerLazySingleton<LoginService>(() => LoginService(locator<Dio>()));
-  // locator.registerLazySingleton<HomeService>(() => HomeService(locator<Dio>()));
+  locator.registerLazySingleton<HomeService>(() => HomeService(locator<Dio>()));
 }
 
 void _registerDatabase(GetIt locator) async {
-  // final database =
-  //     await $FloorAppDatabase.databaseBuilder("bloc_database.db").build();
-  // locator.registerLazySingleton<AppDatabase>(() => database);
-  // locator
-  //     .registerLazySingleton<HomeDao>(() => locator.get<AppDatabase>().homeDao);
+  final database =
+      await $FloorAppDatabase.databaseBuilder("bloc_database.db").build();
+  locator.registerLazySingleton<AppDatabase>(() => database);
+  locator
+      .registerLazySingleton<HomeDao>(() => locator.get<AppDatabase>().homeDao);
 }
