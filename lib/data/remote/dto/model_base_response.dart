@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'model_base_response.g.dart';
 
 const String successStatus = "0";
@@ -16,7 +15,8 @@ class ModelBaseResponse<T> {
   final String? message;
   final T? data;
 
-  ModelBaseResponse(this.requestId, this.status, this.desc, this.message, this.data);
+  ModelBaseResponse(
+      this.requestId, this.status, this.desc, this.message, this.data);
 
   bool isSuccess() => successStatus == status;
 
@@ -25,10 +25,9 @@ class ModelBaseResponse<T> {
   bool isTokenExpired() => tokenExprired == status;
 
   factory ModelBaseResponse.fromJson(
-      Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
       _$ModelBaseResponseFromJson<T>(json, fromJsonT);
 
   Map<String, dynamic> toJson(Object Function(T) toJsonT) =>
       _$ModelBaseResponseToJson<T>(this, toJsonT);
-
 }

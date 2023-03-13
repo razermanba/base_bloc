@@ -34,22 +34,22 @@ abstract class BaseBloc extends Bloc<BaseEvent, BaseState> {
     Function(Emitter<BaseState> emit, String message)? error,
   }) async {
     assert(callToHost != null || callToDb != null,
-    "at least callToHost or callToDb must be non-null ");
+        "at least callToHost or callToDb must be non-null ");
     Fimber.d("callToHost");
     loading != null ? loading.call(emit) : emit(LoadingDialogState());
 
     // case 1: Call db before get data from host.
     // case 2: Only call db to get data
-    if(callToDb != null) {
+    if (callToDb != null) {
       Fimber.d("start call db");
       (await callToDb).when(success: (data) async {
-        if(callToHost == null && success == null) {
+        if (callToHost == null && success == null) {
           hideDialogState();
         }
         success != null ? success.call(emit, data) : emit(SuccessState(data));
       }, error: (type, message) async {
-        if(callToHost == null) {
-          if(error == null) {
+        if (callToHost == null) {
+          if (error == null) {
             hideDialogState();
             emit(ErrorDialogState(message: message));
           } else {
@@ -60,20 +60,20 @@ abstract class BaseBloc extends Bloc<BaseEvent, BaseState> {
     }
 
     // call data from host.
-    if(callToHost != null) {
+    if (callToHost != null) {
       Fimber.d("start call host");
       (await callToHost).when(success: (data) async {
-        if(success == null) {
+        if (success == null) {
           hideDialogState();
           emit(SuccessState(data));
         } else {
           success.call(emit, data);
         }
-      }, error:(type, message) async {
-        if(error == null) {
+      }, error: (type, message) async {
+        if (error == null) {
           hideDialogState();
         }
-        if(type == ErrorType.TOKEN_EXPIRED) {
+        if (type == ErrorType.TOKEN_EXPIRED) {
           error != null
               ? error.call(emit, message)
               : emit(ErrorDialogState(message: message));
@@ -92,18 +92,3 @@ abstract class BaseBloc extends Bloc<BaseEvent, BaseState> {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

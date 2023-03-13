@@ -4,6 +4,7 @@ import 'package:bloc_base/core/bloc/state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/bloc/base_bloc.dart';
+import '../model/home_response.dart';
 import '../remote/repository/home_repository.dart';
 
 class HomeBloc extends BaseBloc {
@@ -18,7 +19,7 @@ class HomeBloc extends BaseBloc {
       callToHost: _repository.loadHomeData(),
       loading: (emit) => emit.call(LoadingViewState()),
       error: (emit, message) => emit.call(ErrorViewState(message: message)),
-      callToDb: _repository.getLocalHomeData(),
+      /*callToDb: _repository.getLocalHomeData(),*/
     );
   }
 

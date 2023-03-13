@@ -43,7 +43,14 @@ abstract class BaseListView<B extends BaseBloc, M> extends BaseView<B> {
   }
 
   Widget loadingView(BuildContext context) {
-    return const CircularProgressIndicator();
+    // return const CircularProgressIndicator();
+
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 1.3,
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 
   Widget errorView(BuildContext context, String? message) {
