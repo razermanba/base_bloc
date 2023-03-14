@@ -5,7 +5,7 @@ const String successStatus = "0";
 const String parseError = "-1";
 const String timeOut = "-2";
 const String unknownError = "-99";
-const String tokenExprired = "401";
+const String tokenExpired = "401";
 
 @JsonSerializable(explicitToJson: true, genericArgumentFactories: true)
 class ModelBaseResponse<T> {
@@ -22,7 +22,7 @@ class ModelBaseResponse<T> {
 
   bool isTimeOut() => timeOut == status;
 
-  bool isTokenExpired() => tokenExprired == status;
+  bool isTokenExpired() => tokenExpired == status;
 
   factory ModelBaseResponse.fromJson(
           Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>

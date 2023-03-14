@@ -85,7 +85,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `HomeEntity` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `HomeEntity` (`id` INTEGER, `title` TEXT, `description` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -125,18 +125,18 @@ class _$HomeDao extends HomeDao {
   Future<List<HomeEntity>> getHomeData() async {
     return _queryAdapter.queryList('select * FROM HomeEntity',
         mapper: (Map<String, Object?> row) => HomeEntity(
-            id: row['id'] as int,
-            title: row['title'] as String,
-            description: row['description'] as String));
+            id: row['id'] as int?,
+            title: row['title'] as String?,
+            description: row['description'] as String?));
   }
 
   @override
   Future<HomeEntity?> getTitleById(int id) async {
     return _queryAdapter.query('select * from HomeEntity where id = ?1',
         mapper: (Map<String, Object?> row) => HomeEntity(
-            id: row['id'] as int,
-            title: row['title'] as String,
-            description: row['description'] as String),
+            id: row['id'] as int?,
+            title: row['title'] as String?,
+            description: row['description'] as String?),
         arguments: [id]);
   }
 

@@ -1,4 +1,5 @@
 import 'package:bloc_base/presentation/routers/router.dart';
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 
 import 'di/locator.dart';
@@ -7,6 +8,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
   runApp(const MyApp());
+
+  Fimber.plantTree(DebugTree());
 }
 
 class MyApp extends StatelessWidget {

@@ -7,9 +7,9 @@ part of 'home_response.dart';
 // **************************************************************************
 
 HomeResponse _$HomeResponseFromJson(Map<String, dynamic> json) => HomeResponse(
-      json['id'] as int,
-      json['title'] as String,
-      json['description'] as String,
+      json['id'] as int?,
+      json['title'] as String?,
+      json['description'] as String?,
     );
 
 Map<String, dynamic> _$HomeResponseToJson(HomeResponse instance) =>

@@ -20,9 +20,9 @@ class HomeScreen extends BaseListView<HomeBloc, HomeResponse> {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          Text(object.title,
+          Text(object.title ?? "",
               style: const TextStyle(color: Colors.red, fontSize: 16)),
-          Text(object.description,
+          Text(object.description ?? "",
               style: const TextStyle(color: Colors.black, fontSize: 14))
         ],
       ),
