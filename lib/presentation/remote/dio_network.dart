@@ -52,13 +52,13 @@ class DioNetwork {
                   "data": [
                     {
                       "id": 1,
-                      "title": "Title 1",
-                      "description": "Description 1"
+                      "title": "Lorem ipsum dolor sit amet 1",
+                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
                     },
                     {
                       "id": 2,
-                      "title": "Title 2",
-                      "description": "Description 2"
+                      "title": "Lorem ipsum dolor sit amet 2",
+                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
                     }
                   ]
                 },

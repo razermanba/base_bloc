@@ -72,5 +72,4 @@ abstract class BaseView<B extends BaseBloc> extends StatelessWidget {
         }
     );
   }
-
 }
