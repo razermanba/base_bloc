@@ -18,7 +18,6 @@ class HomeResponse {
       Fimber.e('Exception occurred in navigateTo: $e');
       return HomeResponse(0, "", "");
     }
-
   }
 
   Map<String, dynamic> toJson() => _$HomeResponseToJson(this);

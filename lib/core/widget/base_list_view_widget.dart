@@ -4,6 +4,7 @@ import '../bloc/base_bloc.dart';
 import '../bloc/state.dart';
 import 'base_widget.dart';
 import 'shimmer_loading.dart';
+import './navigation_drawer_widget.dart';
 
 abstract class BaseListView<B extends BaseBloc, M> extends BaseView<B> {
   const BaseListView({super.key});
@@ -11,6 +12,7 @@ abstract class BaseListView<B extends BaseBloc, M> extends BaseView<B> {
   @override
   Widget buildView(BuildContext context, BaseState state) {
     return Scaffold(
+      drawer: NavigationDrawerWidget(),
       appBar: buildAppBar(context),
       // body: bodyView(context, state),
 

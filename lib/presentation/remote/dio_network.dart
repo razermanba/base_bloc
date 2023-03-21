@@ -62,7 +62,7 @@ class DioNetwork {
                     }
                   ]
                 },
-                delay: const Duration(seconds: 10),
+                delay: const Duration(seconds: 1),
               )
             },
         data: Matchers.any);

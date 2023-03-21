@@ -25,5 +25,4 @@ class HomeBloc extends BaseBloc {
 
   @override
   Future<void> handleEvent(BaseEvent event, Emitter<BaseState> emit) async {}
-
 }

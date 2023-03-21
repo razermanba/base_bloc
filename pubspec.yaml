@@ -43,6 +43,7 @@ dependencies:
   fimber: ^0.6.6
   equatable: ^2.0.3
   http_mock_adapter: ^0.3.3
+  flutter_tree:
 
 dev_dependencies:
   flutter_test:
