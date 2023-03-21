@@ -20,5 +20,7 @@ this script genera file .g.dart
 - dart run build_runner build
 link flutter gems
 - https://fluttergems.dev
+build ios on device dont run xcode or android sudio 
+- flutter run --release
 
 

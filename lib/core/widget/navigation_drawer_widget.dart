@@ -7,27 +7,27 @@ import './tree_data.dart';
 class NavigationDrawerWidget extends StatelessWidget {
   const NavigationDrawerWidget({Key? key}) : super(key: key);
 
-  Future<List<TreeNodeData>> _load(TreeNodeData parent) async {
-    await Future.delayed(const Duration(seconds: 1));
-    final data = [
-      TreeNodeData(
-        title: 'Load node 1',
-        children: [],
-        extra: null,
-        checked: false,
-        expaned: false,
-      ),
-      TreeNodeData(
-        title: 'Load node 2',
-        children: [],
-        extra: null,
-        checked: false,
-        expaned: false,
-      ),
-    ];
-
-    return data;
-  }
+  // Future<List<TreeNodeData>> _load(TreeNodeData parent) async {
+  //   await Future.delayed(const Duration(seconds: 1));
+  //   final data = [
+  //     TreeNodeData(
+  //       title: 'Load node 1',
+  //       children: [],
+  //       extra: null,
+  //       checked: false,
+  //       expaned: false,
+  //     ),
+  //     TreeNodeData(
+  //       title: 'Load node 2',
+  //       children: [],
+  //       extra: null,
+  //       checked: false,
+  //       expaned: false,
+  //     ),
+  //   ];
+  //
+  //   return data;
+  // }
 
   @override
   Widget build(BuildContext context) {

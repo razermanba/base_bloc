@@ -13,58 +13,94 @@ class LoginScreen extends BaseView<LoginBloc> {
 
   @override
   Widget buildView(BuildContext context, BaseState state) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login screen"),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: _buildBody(context),
       ),
-      body: _buildBody(context),
     );
   }
 
   Widget _buildBody(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+    return SingleChildScrollView(
+        padding: const EdgeInsets.all(10),
+        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+          const SizedBox(height: 60),
+          Image.asset('assets/AppIcon/Icon-App-83.5x83.5@2x.png'),
+          const SizedBox(height: 30),
+          const Text(
+            '＼登録済みの方はこちら／',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          const SizedBox(height: 20),
           TextField(
               onChanged: (text) {
                 final bloc = BlocProvider.of<LoginBloc>(context);
                 bloc.add(LoginUserNameChanged(text));
               },
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Username",
+              scrollPadding: const EdgeInsets.all(20.0),
+              decoration: InputDecoration(
+                hintText: "ユーザーID(6桁の番号)",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(0),
+                  borderSide: const BorderSide(
+                    width: 0.2,
+                    style: BorderStyle.none,
+                  ),
+                ),
               )),
-          const SizedBox(height: 20),
+          const SizedBox(height: 0),
           TextField(
               onChanged: (text) {
                 final bloc = BlocProvider.of<LoginBloc>(context);
                 bloc.add(LoginPasswordChanged(text));
               },
+              scrollPadding: const EdgeInsets.all(20.0),
               obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Password",
+              decoration: InputDecoration(
+                hintText: "パスワード",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(0),
+                  borderSide: const BorderSide(
+                    width: 0.2,
+                    style: BorderStyle.none,
+                  ),
+                ),
               )),
           const SizedBox(height: 20),
           ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5), // <-- Radius
+                ),
+              ),
               onPressed: () {
                 final bloc = BlocProvider.of<LoginBloc>(context);
                 bloc.add(LoginSubmitted());
               },
-              child: const Text("Login")
-          )
-        ])
-    );
+              child: const Text("ログイン")
+          ),
+          const SizedBox(height: 5),
+          TextButton(
+            onPressed: () {
+              // final bloc = BlocProvider.of<LoginBloc>(context);
+              // bloc.add(LoginSubmitted());
+            },
+            child: const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "パスワードをお忘れの方はこちら",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.blue, fontSize: 13),
+                )),
+          ),
+        ]));
   }
 
   @override
   createBloc() {
     return LoginBloc(locator<LoginRepository>());
   }
-
 }
-
-
-
-
-

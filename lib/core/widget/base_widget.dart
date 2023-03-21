@@ -64,6 +64,8 @@ abstract class BaseView<B extends BaseBloc> extends StatelessWidget {
 
   B createBloc();
 
+
+
   showDialogView({required BuildContext context, required Widget content}) {
     showDialog(
         context: context,
